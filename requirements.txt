@@ -1,0 +1,2 @@
+git+git://github.com/pkkid/python-plexapi.git
+websocket-client

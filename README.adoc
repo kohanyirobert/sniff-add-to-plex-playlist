@@ -1,0 +1,11 @@
+= About
+
+Helper script for `aws-lambda-sniff-sftp`.
+
+Invoked through `SSH_COMMAND`.
+
+= Example
+
+```
+nohup python -u main.py <url> <token> <library> <playlist> '{}' &> out.log &
+```
