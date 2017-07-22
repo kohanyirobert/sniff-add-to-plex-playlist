@@ -9,6 +9,13 @@ section_title = argv[3]
 playlist_title = argv[4]
 item_title = argv[5]
 
+print('url', url)
+print('token', token)
+print('section_title', section_title)
+print('playlist_title', playlist_title)
+print('item_title', item_title)
+
+
 def cb(data):
     if 'StatusNotification' and data['size'] == 1:
         status = data[u'StatusNotification'][0]
@@ -32,12 +39,12 @@ while notifier.isAlive():
     sleep(0.1)
 
 print('addig item to playlist')
-items = library.search(title=item_title, sort='addedAt:desc', maxresults=1)
+items = section.searchTracks(title=item_title, sort='addedAt:desc', maxresults=1)
 print('items', items)
 if items:
-  playlist = server.playlist(playlist_title)
-  print('playlist', playlist)
-  playlist.addItems(items)
-  print('item added to playlist')
+    playlist = server.playlist(playlist_title)
+    print('playlist', playlist)
+    playlist.addItems(items)
+    print('item added to playlist')
 else:
-  print('no items found')
+    print('no items found')
