@@ -9,12 +9,6 @@ section_title = argv[3]
 playlist_title = argv[4]
 item_title = argv[5]
 
-print('url', url)
-print('token', token)
-print('section_title', section_title)
-print('playlist_title', playlist_title)
-print('item_title', item_title)
-
 
 def cb(data):
     if 'StatusNotification' and data['size'] == 1:
