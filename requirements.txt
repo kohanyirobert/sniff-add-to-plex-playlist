@@ -1,2 +1,2 @@
-git+git://github.com/pkkid/python-plexapi.git
-websocket-client
+git+git://github.com/pkkid/python-plexapi.git@3.0.6#plexapi
+websocket-client==0.56.0

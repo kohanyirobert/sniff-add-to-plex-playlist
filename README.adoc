@@ -1,11 +1,29 @@
 = About
 
+**Important**: for some reason currently this doesn't work.
+The tool depends on the `plexapi` Python library.
+
 Helper script for `aws-lambda-sniff-sftp`.
 
 Invoked through `SSH_COMMAND`.
 
+. Locates Plex library (by `section_title`).
+. Initiates a refresh and waits for it to finish.
+. After that it tries to find an item in the library (by `item_title`).
+. If it's found it's added to a playlist (located by `playlist_title`).
+
+**Note**: check `requirements.txt` to see dependencies.
+
 = Example
 
 ```
-nohup python -u main.py <url> <token> <library> <playlist> '{}' &> out.log &
+nohup python -u main.py <url> <token> <section_title> <playlist_title> '{}' &> out.log &
 ```
+
+**Note**: `-u` means unbuffered output.
+
+* `url` - By default the URL should be `http://172.17.0.23:32400`, not sure why.
+* `token` - Follow https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/[this guide to find the token]. In short, _Get Info_ on an item > _View XML_, the `X-Plex-Token` is amongst the query parameters in the URL.
+* `section_title` - Name of the Plex library to refresh.
+* `playlist_title` - Name of the Plex playlist to add the item. 
+* `'{}'` - Placeholder that will be replaced by `item_title`.
