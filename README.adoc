@@ -1,8 +1,5 @@
 = About
 
-**Important**: for some reason currently this doesn't work.
-The tool depends on the `plexapi` Python library.
-
 Helper script for `aws-lambda-sniff-sftp`.
 
 Invoked through `SSH_COMMAND`.
